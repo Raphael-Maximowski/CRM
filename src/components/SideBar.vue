@@ -135,6 +135,7 @@ const changeDropDownState = () => {
     h1, p {
       text-align: center;
       margin: 3px 0px;
+      color: white;
     }
 
     h1 {
@@ -158,7 +159,6 @@ const changeDropDownState = () => {
     height: 100vh;
 
     #iconContainer {
-      background-color: red;
       height: 10vh;
       display: flex;
       align-items: center;
@@ -168,7 +168,7 @@ const changeDropDownState = () => {
     #optionsContainer {
 
       .optionContent {
-        background-color: green;
+
         height: 10vh;
         display: flex;
         align-items: center;
@@ -177,7 +177,7 @@ const changeDropDownState = () => {
         img {
           width: 35px;
           cursor: pointer;
-          background-color: red;
+          background-color: darkblue;
           padding: 5px;
           border-radius: 5px;
         }
@@ -186,7 +186,7 @@ const changeDropDownState = () => {
   }
 
   header {
-    background-color: blue;
+    background-color: rgba(0, 0, 0, 0.32);
     height: 10vh;
     width: 100vw;
     display: flex;
