@@ -1,7 +1,14 @@
 <script setup lang="ts">
 
-import { ref } from 'vue'
+import { onMounted, ref, watch } from 'vue'
 import type { DropDown } from '@/models/SideBar'
+import { useRoute } from 'vue-router'
+
+const route = useRoute()
+
+watch(route, (newValue) => {
+  console.log(newValue.fullPath)
+})
 
 const props = defineProps({
   windowWidth: { type: Number, required: true }
@@ -92,8 +99,17 @@ const changeDropDownState = () => {
     <div>
       <header>
         <div id="titleWrapper">
-          <h1> Welcome User </h1>
-          <p>Have a nice experience</p>
+          <div>
+            <h1> Welcome User </h1>
+            <p>Have a nice experience</p>
+          </div>
+        </div>
+        <div v-if="route.fullPath === '/'" id="funnelManagementContainer">
+          <button>Create Funnel</button>
+          <button>Manage Funnels</button>
+        </div>
+        <div v-if="route.fullPath === '/Contacts'" id="funnelManagementContainer">
+          <button>Create Contact</button>
         </div>
       </header>
       <main>
@@ -179,7 +195,6 @@ const changeDropDownState = () => {
           cursor: pointer;
           background-color: darkblue;
           padding: 5px;
-          border-radius: 5px;
         }
       }
     }
@@ -191,9 +206,25 @@ const changeDropDownState = () => {
     width: 100vw;
     display: flex;
     align-items: center;
+    justify-content: space-between;
 
     #titleWrapper {
       margin-left: 30px;
+    }
+
+    #funnelManagementContainer {
+      margin-right: 10vw;
+
+      button {
+        border: 0px;
+        background-color: blue;
+        color: white;
+        padding: 1.5vh 2vw;
+        margin: 0px 40px;
+        font-size: 15px;
+        border-radius: 10px;
+        cursor: pointer;
+      }
     }
   }
 }

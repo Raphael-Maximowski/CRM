@@ -22,6 +22,12 @@ const router = createRouter({
       path: '/Reports',
       name: 'Reports',
       component: () => import ('../views/Reports.vue')
+    },
+    {
+      path: '/funnel/:id',
+      name: 'Funnel',
+      component: () => import('../views/CustomerRM.vue'),
+      props: true
     }
   ],
 })
